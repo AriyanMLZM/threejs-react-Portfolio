@@ -1,6 +1,10 @@
 import React, { Suspense, useEffect, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls, PerspectiveCamera, PerformanceMonitor } from '@react-three/drei'
+import {
+  OrbitControls,
+  PerspectiveCamera,
+  PerformanceMonitor,
+} from '@react-three/drei'
 import { gsap } from 'gsap'
 import round from 'lodash/round'
 
@@ -8,6 +12,7 @@ import { Dog, Model1, Model2, Rain } from '../models'
 import { Gifs } from '../containers'
 import { Aboutme, Projects, Start, Loader, Music } from './'
 import { useMusics, useSounds } from '../hooks'
+import { set } from 'lodash'
 
 const Home = () => {
   const [start, setStart] = useState(false)
@@ -409,7 +414,13 @@ const Home = () => {
         stencil: isMobile ? false : true,
       }}
     >
-      <PerformanceMonitor onChange={({ factor }) => setDpr(round(0.5 + 1.5 * factor, 1))}/>
+      <PerformanceMonitor
+        onChange={({ factor }) => {
+          var tempDpr = round(0.5 + 1.5 * factor, 1)
+          if (tempDpr > 1.5) setDpr(1.5)
+          else setDpr(tempDpr)
+        }}
+      />
       <Suspense fallback={<Loader />}>
         {!show && <Start func={handleStart} />}
         <PerspectiveCamera
