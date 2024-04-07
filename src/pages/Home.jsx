@@ -31,6 +31,7 @@ const Home = () => {
   const [isMobile, setIsMobile] = useState(false)
   const [show, setShow] = useState(false)
   const [dpr, setDpr] = useState(1)
+  const [lowfps, setLowfps] = useState(false)
 
   const controlRef = useRef()
   const cameraRef = useRef()
@@ -410,13 +411,15 @@ const Home = () => {
       dpr={dpr}
       gl={{
         powerPreference: 'high-performance',
-        antialias: isMobile ? false : true,
-        stencil: isMobile ? false : true,
+        antialias: lowfps ? false : true,
+        stencil: lowfps ? false : true,
       }}
     >
       <PerformanceMonitor
         onChange={({ factor }) => {
           var tempDpr = round(0.5 + 1.5 * factor, 1)
+          if (tempDpr <= 1.2) setLowfps(true)
+          else setLowfps(false)
           if (tempDpr > 1.5) setDpr(1.5)
           else setDpr(tempDpr)
         }}
