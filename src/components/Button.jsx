@@ -4,7 +4,9 @@ const Button = ({ children, active = false, tab = null, func }) => {
   return (
     <button
       type="button"
-      className={`hover:text-white ${active && 'text-primary'}`}
+      className={`${!active && 'md:hover:text-white'} ${
+        active && 'text-primary'
+      }`}
       onClick={() => func(tab)}
     >
       {children}
