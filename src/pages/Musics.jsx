@@ -5,7 +5,7 @@ import { music, close } from '../assets/icons'
 import { musics } from '../constants'
 import { Music } from '../containers'
 
-const Musics = ({ ind, play, handleClose }) => {
+const Musics = ({ ind, play, handleClose, changeMusic }) => {
   return (
     <Html
       transform
@@ -39,6 +39,7 @@ const Musics = ({ ind, play, handleClose }) => {
               music={music}
               index={index}
               active={index === ind ? true : false}
+              changeMusic={changeMusic}
             />
           ))}
         </section>

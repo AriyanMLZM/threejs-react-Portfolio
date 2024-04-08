@@ -77,46 +77,42 @@ const Home = () => {
     )
   }
 
-  const changeMusic = (action) => {
+  const changeMusic = (action, ind = -1, timeout = false) => {
     if (clickS.current.paused) clickS.current.play()
-    if (scene === 3) {
+    if (scene === 3 || timeout) {
       switch (action) {
         case -1:
           musics[musicInd].current.pause()
-          if (musicInd === 0) {
-            musics[musics.length - 1].current.currentTime = 0
-            musics[musics.length - 1].current.play()
-            setMusicInd(musics.length - 1)
-          } else {
-            musics[musicInd - 1].current.currentTime = 0
-            musics[musicInd - 1].current.play()
-            setMusicInd(musicInd - 1)
-          }
-          setPlaying(true)
+          if (musicInd === 0) setMusicInd(musics.length - 1)
+          else setMusicInd(musicInd - 1)
           break
         case 0:
           if (playing) musics[musicInd].current.pause()
-          else musics[musicInd].current.play()
+          else {
+            musics[musicInd].current.play()
+          }
           setPlaying(!playing)
           break
         case 1:
           musics[musicInd].current.pause()
-          if (musicInd === musics.length - 1) {
-            musics[0].current.currentTime = 0
-            musics[0].current.play()
-            setMusicInd(0)
-          } else {
-            musics[musicInd + 1].current.currentTime = 0
-            musics[musicInd + 1].current.play()
-            setMusicInd(musicInd + 1)
-          }
-          setPlaying(true)
+          if (musicInd === musics.length - 1) setMusicInd(0)
+          else setMusicInd(musicInd + 1)
           break
+        case 2:
+          musics[musicInd].current.pause()
+          setMusicInd(ind)
       }
     } else if (scene === 0) {
       changeScene(3)
     }
   }
+
+  useEffect(() => {
+    if (start) {
+      musics[musicInd].current.currentTime = 0
+      musics[musicInd].current.play()
+    }
+  }, [musicInd])
 
   const changePic = (pnum) => {
     if (!isAnimating) {
@@ -468,7 +464,12 @@ const Home = () => {
         {scene === 1 && <Aboutme handleClose={handleClose} />}
         {scene === 2 && <Projects handleClose={handleClose} />}
         {scene === 3 && (
-          <Musics handleClose={handleClose} play={playing} ind={musicInd} />
+          <Musics
+            handleClose={handleClose}
+            play={playing}
+            ind={musicInd}
+            changeMusic={changeMusic}
+          />
         )}
         <OrbitControls
           maxDistance={120}
