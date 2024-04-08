@@ -111,6 +111,7 @@ const Home = () => {
     if (start) {
       musics[musicInd].current.currentTime = 0
       musics[musicInd].current.play()
+      if (!playing) setPlaying(true)
     }
   }, [musicInd])
 
