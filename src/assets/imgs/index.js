@@ -18,8 +18,21 @@ import proj9 from './proj9.jpg'
 import proj10 from './proj10.jpg'
 import proj11 from './proj11.jpg'
 import proj12 from './proj12.jpg'
+import afterdark from './afterdark.jpg'
+import endless from './endless.jpg'
+import intro from './intro.jpg'
+import love from './love.jpg'
+import mareux from './mareux.jpg'
+import trench from './trench.jpg'
+
 
 export {
+  afterdark,
+  endless,
+  intro,
+  love,
+  mareux,
+  trench,
   bc,
   bh,
   bm,

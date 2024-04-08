@@ -10,9 +10,8 @@ import round from 'lodash/round'
 
 import { Dog, Model1, Model2, Rain } from '../models'
 import { Gifs } from '../containers'
-import { Aboutme, Projects, Start, Loader, Music } from './'
+import { Aboutme, Projects, Start, Loader, Musics } from './'
 import { useMusics, useSounds } from '../hooks'
-import { set } from 'lodash'
 
 const Home = () => {
   const [start, setStart] = useState(false)
@@ -469,7 +468,7 @@ const Home = () => {
         {scene === 1 && <Aboutme handleClose={handleClose} />}
         {scene === 2 && <Projects handleClose={handleClose} />}
         {scene === 3 && (
-          <Music handleClose={handleClose} play={playing} ind={musicInd} />
+          <Musics handleClose={handleClose} play={playing} ind={musicInd} />
         )}
         <OrbitControls
           maxDistance={120}

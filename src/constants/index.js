@@ -18,6 +18,12 @@ import {
   proj7,
   proj8,
   proj9,
+  afterdark,
+  endless,
+  intro,
+  love,
+  mareux,
+  trench
 } from '../assets/imgs'
 
 export const about = {
@@ -160,26 +166,32 @@ export const musics = [
   {
     title: 'Intro',
     singer: 'Welcome',
+    img: intro
   },
   {
     title: 'After Dark',
     singer: 'Mr. Kitty',
+    img: afterdark
   },
   {
     title: 'Bandito',
     singer: 'Twenty One Pilots',
+    img: trench
   },
   {
     title: 'The Perfect Girl',
     singer: 'Mareux',
+    img: mareux
   },
   {
     title: "Can't Help Falling In Love",
     singer: 'Twenty One Pilots',
+    img: love
   },
   {
     title: 'Endless Song',
     singer: 'Aaron',
+    img: endless
   },
 ]
 
