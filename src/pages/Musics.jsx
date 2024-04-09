@@ -1,5 +1,6 @@
 import React from 'react'
 import { Html } from '@react-three/drei'
+import { v4 as uuid } from 'uuid'
 
 import { music, close } from '../assets/icons'
 import { musics } from '../constants'
@@ -40,6 +41,7 @@ const Musics = ({ ind, play, handleClose, changeMusic }) => {
               index={index}
               active={index === ind ? true : false}
               changeMusic={changeMusic}
+              key={uuid()}
             />
           ))}
         </section>
