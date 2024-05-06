@@ -1,8 +1,17 @@
 import React from 'react'
+import { Html } from '@react-three/drei'
 
-const Tab = () => {
+const Tab = ({ props }) => {
   return (
-    <div>Tab</div>
+    <Html>
+      <button
+        type="button"
+        onClick={() => {}}
+        className="md:hover:text-white text-black text-[20px] font-mono"
+      >
+        {props.text}
+      </button>
+    </Html>
   )
 }
 

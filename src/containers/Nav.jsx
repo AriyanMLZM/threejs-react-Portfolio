@@ -5,7 +5,7 @@ import { Tab } from '../components'
 const Nav = () => {
   return (
     <>
-      <Tab />
+      <Tab props={{ text: 'About' }} />
     </>
   )
 }
