@@ -9,7 +9,7 @@ const Nav = ({ props }) => {
 
   return (
     <>
-      <Tab props={{ text: 'About', handleClick }} />
+      <Tab props={{ text: 'About', ind: 1, handleClick }} />
     </>
   )
 }
