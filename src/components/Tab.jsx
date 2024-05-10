@@ -6,7 +6,7 @@ const Tab = ({ props }) => {
     <Html>
       <button
         type="button"
-        onClick={() => {}}
+        onClick={() => props.handleClick(props.ind)}
         className="md:hover:text-white text-black text-[20px] font-mono"
       >
         {props.text}
