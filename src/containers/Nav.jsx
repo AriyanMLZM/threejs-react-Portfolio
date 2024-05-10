@@ -2,10 +2,14 @@ import React from 'react'
 
 import { Tab } from '../components'
 
-const Nav = () => {
+const Nav = ({ props }) => {
+  const handleClick = (ind) => {
+    props.chnageScene(ind)
+  }
+
   return (
     <>
-      <Tab props={{ text: 'About' }} />
+      <Tab props={{ text: 'About', handleClick }} />
     </>
   )
 }
